@@ -19,7 +19,7 @@ static const float NA = 6.02214129E23F;               // Avigadro's number
 static const float QE = 1.60217646E-19F;              // Charge or electron
 static const double FS_ALPHA = 0.007297352570866302;  // Fine structure alpha
 
-static const float rga_E0 = 24.0;
+static const float rga_E0 = 22.0;
 
 // particle codes, usually PDG codes, but always those used in BOS
 static const int PROTON = 2212;
