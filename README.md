@@ -14,7 +14,6 @@ cd clas22_analysis/build
 cmake ..
 make
 ```
-
 To run:
 1. To produce csv file in order to plot in jupyter notebook or python
 ```bash
