@@ -1,4 +1,4 @@
-# clas22_gev_ana
+# CLAS22_gev_ana
 
 Quick test to show dst2root is working and output a few histograms to a root file.
 
