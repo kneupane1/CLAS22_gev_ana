@@ -5,8 +5,9 @@
 #include <iostream>
 #include "branches.hpp"
 
-class Delta_T {
- private:
+class Delta_T
+{
+private:
   std::shared_ptr<Branches12> _data;
   float _sc_t_v = NAN;
   float _sc_r_v = NAN;
@@ -25,12 +26,13 @@ class Delta_T {
   float _beta = NAN;
   float _momentum = NAN;
   bool _ctof = false;
+  bool _ctof_particle = false;
 
   float _vertex_time(float sc_time, float sc_pathlength, float relatavistic_beta);
   float _deltat(int num);
   float _ctof_deltat(int pid);
 
- public:
+public:
   Delta_T(std::shared_ptr<Branches12> data);
   ~Delta_T();
 
@@ -58,6 +60,7 @@ class Delta_T {
 
   float momentum();
   bool ctof();
+  bool ctof_particle(int i);
 };
 
 #endif

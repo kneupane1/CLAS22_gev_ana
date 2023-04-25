@@ -93,6 +93,7 @@ size_t run(std::shared_ptr<TChain> _chain, const std::shared_ptr<SyncFile>& _syn
 
       // Check particle ID's and fill the reaction class
       if (cuts->IsProton(part)) {
+
         event->SetProton(part);
         statusProt = abs(data->status(part));
 

@@ -82,7 +82,7 @@ size_t run(std::shared_ptr<TChain> _chain, const std::shared_ptr<Histogram>& _hi
     auto event = std::make_shared<Reaction>(data, beam_energy);
 
     // For each particle in the event
-    for (int part = 0; part < data->gpart(); part++) {
+    for (int part = 1; part < data->gpart(); part++) {
       dt->dt_calc(part);
       _hists->Fill_MomVsBeta(data, part, event);
       _hists->Fill_deltat_pi(data, dt, part, event);

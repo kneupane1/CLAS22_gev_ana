@@ -83,6 +83,7 @@ void Reaction::SetProton(int i) {
   _numPos++;
   _hasP = true;
   _prot->SetXYZM(_data->px(i), _data->py(i), _data->pz(i), MASS_P);
+  // std::cout << "ctof angle prot : " << _prot->Theta()*RAD2DEG << std::endl;
 }
 
 void Reaction::SetPip(int i) {
