@@ -15,11 +15,11 @@ static const int NEGATIVE = -1;
 static const float c_special_units = 29.9792458F;
 // misc. constants
 static const float FSC = 0.00729735253F;
-static const float NA = 6.02214129E23F;               // Avigadro's number
-static const float QE = 1.60217646E-19F;              // Charge or electron
-static const double FS_ALPHA = 0.007297352570866302;  // Fine structure alpha
+static const float NA = 6.02214129E23F;              // Avigadro's number
+static const float QE = 1.60217646E-19F;             // Charge or electron
+static const double FS_ALPHA = 0.007297352570866302; // Fine structure alpha
 
-static const float rga_E0 = 22.0;
+static const float rga_E0 = 10.6;
 
 // particle codes, usually PDG codes, but always those used in BOS
 static const int PROTON = 2212;
@@ -44,9 +44,6 @@ static const float MASS_KM = 0.493677;
 static const float MASS_G = 0.0;
 static const float MASS_OMEGA = 0.78265;
 
-static std::unordered_map<int, float> mass = {{PROTON, MASS_P}, {-PROTON, MASS_P},  {NEUTRON, MASS_N},  {PIP, MASS_PIP},
-                                              {PIM, MASS_PIM},  {PI0, MASS_PI0},    {KP, MASS_KP},      {KM, MASS_KM},
-                                              {PHOTON, MASS_G}, {ELECTRON, MASS_E}, {-ELECTRON, MASS_E}};
-
+static std::unordered_map<int, float> mass = {{PROTON, MASS_P}, {-PROTON, MASS_P}, {NEUTRON, MASS_N}, {PIP, MASS_PIP}, {PIM, MASS_PIM}, {PI0, MASS_PI0}, {KP, MASS_KP}, {KM, MASS_KM}, {PHOTON, MASS_G}, {ELECTRON, MASS_E}, {-ELECTRON, MASS_E}};
 
 #endif

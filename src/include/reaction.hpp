@@ -9,11 +9,13 @@
 #include "constants.hpp"
 #include "physics.hpp"
 
-class Reaction {
- protected:
+class Reaction
+{
+protected:
   std::shared_ptr<Branches12> _data;
 
-  double _beam_energy = 24.0;
+  double _beam_energy = 10.6041;
+
   std::unique_ptr<TLorentzVector> _beam;
   std::unique_ptr<TLorentzVector> _elec;
   std::unique_ptr<TLorentzVector> _gamma;
@@ -23,7 +25,6 @@ class Reaction {
   std::unique_ptr<TLorentzVector> _pim;
   std::unique_ptr<TLorentzVector> _other;
   std::unique_ptr<TLorentzVector> _neutron;
-
 
   bool _mc = false;
 
@@ -48,14 +49,15 @@ class Reaction {
   float _MM2_mPim = NAN;
   float _MM2_exclusive = NAN;
   float _excl_Energy = NAN;
-  float _excl_Mom = NAN;;
+  float _excl_Mom = NAN;
+  ;
   float _MM2_mPip = NAN;
   float _MM2_mProt = NAN;
 
   float _W = NAN;
   float _Q2 = NAN;
-  double _emu_prime_mag2 = NAN;;
-  double _emu_mag2 = NAN;;
+  double _emu_prime_mag2 = NAN;
+  double _emu_mag2 = NAN;
   double _elec_energy = NAN;
   double _elec_mom = NAN;
   float _theta_e = NAN;
@@ -67,14 +69,12 @@ class Reaction {
 
   void SetElec();
 
-
-
-
- public:
+public:
   Reaction(){};
   Reaction(const std::shared_ptr<Branches12> &data, float beam_energy);
   ~Reaction();
-  inline float weight() {
+  inline float weight()
+  {
     return _data->mc_weight();
     // return 1.0;
   }
@@ -84,8 +84,6 @@ class Reaction {
   // 3. from if (data->mc_npart() < 1) to all particle set up im mc events.
   // 4. all mc bank related (generated) output parameters will not work in exp data
 
-  // momentum correction
-  void SetMomCorrElec();
   double dpp(float px, float py, float pz, int sec_mom_corr, int ivec);
   double elec_mom();
   double elec_E();
@@ -119,27 +117,31 @@ class Reaction {
   inline short sec() { return _data->dc_sec(0); }
   inline int det() { return abs(_data->status(0) / 1000); }
 
-  inline bool TwoPion_missingPim() {
+  inline bool TwoPion_missingPim()
+  {
     bool _channelTwoPi = true;
-    _channelTwoPi &= ((_numProt == 1 && _numPip == 1) && (_hasE && _hasP  && _hasPip));
+    _channelTwoPi &= ((_numProt == 1 && _numPip == 1) && (_hasE && _hasP && _hasPip));
     return _channelTwoPi;
   }
 
-  inline bool TwoPion_exclusive() {
+  inline bool TwoPion_exclusive()
+  {
     bool _channelTwoPi_excl = true;
 
     _channelTwoPi_excl &= ((_numProt == 1 && _numPip == 1 && _numPim == 1) &&
                            (_hasE && _hasP && _hasPip && _hasPim /*&& !_hasNeutron && !_hasOther*/));
     return _channelTwoPi_excl;
   }
-  inline bool TwoPion_missingPip() {
+  inline bool TwoPion_missingPip()
+  {
     bool _channelTwoPi_mpip = true;
 
     _channelTwoPi_mpip &=
         ((_numProt == 1 && _numPim == 1) && (_hasE && _hasP && _hasPim /*&&!_hasPip && !_hasNeutron && !_hasOther*/));
     return _channelTwoPi_mpip;
   }
-  inline bool TwoPion_missingProt() {
+  inline bool TwoPion_missingProt()
+  {
     bool _channelTwoPi_mprot = true;
     _channelTwoPi_mprot &=
         ((_numPip == 1 && _numPim == 1) && (_hasE && _hasPip && _hasPim /*&&!_hasP  && !_hasOther*/));
@@ -151,8 +153,9 @@ class Reaction {
   const TLorentzVector &gamma() { return *_gamma; }
 };
 
-class MCReaction : public Reaction {
- private:
+class MCReaction : public Reaction
+{
+private:
   float _weight_mc = NAN;
   float _W_mc = NAN;
   float _Q2_mc = NAN;
@@ -166,7 +169,8 @@ class MCReaction : public Reaction {
 
   float _MM2_exclusive_mc = NAN;
   float _excl_Energy_mc = NAN;
- public:
+
+public:
   void SetMCProton(int i);
   void SetMCPip(int i);
   void SetMCPim(int i);
@@ -190,7 +194,6 @@ class MCReaction : public Reaction {
   float elec_phi_mc_gen();
 
   void CalcMissMass_mc();
-
 };
 
 #endif

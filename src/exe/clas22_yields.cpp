@@ -2,27 +2,34 @@
 #include <future>
 #include <thread>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
         // Need this to make sure root doesn't break
         ROOT::EnableThreadSafety();
         // std::ios::sync_with_stdio(false);
 
         // Make sure we don't create more threads than files
         int NUM_THREADS = 4;
-        if (getenv("NUM_THREADS") != NULL) NUM_THREADS = atoi(getenv("NUM_THREADS"));
-        if (NUM_THREADS > argc - NUM_THREADS) NUM_THREADS = 1;
+        if (getenv("NUM_THREADS") != NULL)
+                NUM_THREADS = atoi(getenv("NUM_THREADS"));
+        if (NUM_THREADS > argc - NUM_THREADS)
+                NUM_THREADS = 1;
 
         // Make a vector of vectors of strings the size of the number of threads
-        std::vector<std::vector<std::string> > infilenames(NUM_THREADS);
+        std::vector<std::vector<std::string>> infilenames(NUM_THREADS);
         // Get the output file name
         std::string outfilename;
 
-        if (argc >= 2) {
+        if (argc >= 2)
+        {
                 // First argument is the output file
                 outfilename = argv[1];
                 // All other files are split evently by the under of threads
-                for (int i = 2; i < argc; i++) infilenames[i % NUM_THREADS].push_back(argv[i]);
-        } else {
+                for (int i = 2; i < argc; i++)
+                        infilenames[i % NUM_THREADS].push_back(argv[i]);
+        }
+        else
+        {
                 return 1;
         }
 
@@ -30,21 +37,19 @@ int main(int argc, char** argv) {
         auto csv_output_file = std::make_shared<SyncFile>(outfilename);
         csv_output_file->write(csv_data::header());
         // auto run_files = [&csv_output_file](auto&& inputs, auto&& thread_id) mutable {
-        auto run_files = [&csv_output_file](std::vector<std::string> inputs, auto&& thread_id) mutable {
+        auto run_files = [&csv_output_file](std::vector<std::string> inputs, auto &&thread_id) mutable {
+                // Called once for each thread
+                // Make a new chain to process for this thread
+                auto chain = std::make_shared<TChain>("clas12");
 
-                                 // Called once for each thread
-                                 // Make a new chain to process for this thread
-                                 auto chain = std::make_shared<TChain>("clas12");
+                // Add every file to the chain
+                for (auto in : inputs)
+                        chain->Add(in.c_str());
 
-                                 // Add every file to the chain
-                                 for (auto in : inputs) chain->Add(in.c_str());
-
-                                 // Run the function over each thread
-                                 // return run(chain, csv_output_file, thread_id);
-                                 return run<uconn_Cuts>(std::move(chain), csv_output_file, thread_id);
-
-
-                         };
+                // Run the function over each thread
+                // return run(chain, csv_output_file, thread_id);
+                return run<rga_Cuts>(std::move(chain), csv_output_file, thread_id);
+        };
 
         // Make a set of threads (Futures are special threads which return a value)
         std::future<size_t> threads[NUM_THREADS];
@@ -55,7 +60,8 @@ int main(int argc, char** argv) {
         // Start timer
         auto start = std::chrono::high_resolution_clock::now();
         // For each thread
-        for (size_t i = 0; i < NUM_THREADS; i++) {
+        for (size_t i = 0; i < NUM_THREADS; i++)
+        {
                 // Set the thread to run a task A-Syncroisly
                 // The function we run is the first argument (run_files)
                 // The functions areruments are all the remaining arguments
@@ -63,7 +69,8 @@ int main(int argc, char** argv) {
         }
 
         // For each thread
-        for (size_t i = 0; i < NUM_THREADS; i++) {
+        for (size_t i = 0; i < NUM_THREADS; i++)
+        {
                 // Get the information from the thread in this case how many events each thread actually computed
                 events += threads[i].get();
         }

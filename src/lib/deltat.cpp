@@ -20,8 +20,11 @@ Delta_T::Delta_T(std::shared_ptr<Branches12> data)
     _sc_r_v = _data->sc_ftof_2_path(0);
   }
   _vertex = _vertex_time(_sc_t_v, _sc_r_v, 1.0);
+
   if (!std::isnan(_data->sc_ctof_time(0)))
   {
+    _ctof = true;
+
     _ctof_t_v = _data->sc_ctof_time(0);
     _ctof_r_v = _data->sc_ctof_path(0);
     _ctof_vertex = _vertex_time(_ctof_t_v, _ctof_r_v, 1.0);
@@ -158,7 +161,8 @@ float Delta_T::dt_ctof(int pid) { return _ctof_deltat(pid); }
 
 float Delta_T::momentum() { return _momentum; }
 bool Delta_T::ctof() { return _ctof; }
-bool Delta_T::ctof_particle(int i){
+bool Delta_T::ctof_particle(int i)
+{
   this->dt_calc(i);
   return _ctof_particle;
 }
