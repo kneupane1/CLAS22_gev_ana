@@ -10,8 +10,8 @@ To build:
 
 ```bash
 git clone https://github.com/kneupane1/CLAS22_gev_ana
-mkdir -p clas22_analysis/build
-cd clas22_analysis/build
+mkdir -p CLAS22_gev_ana/build
+cd CLAS22_gev_ana/build
 cmake ..
 make
 ```
