@@ -36,10 +36,10 @@ protected:
 
     int bins = 200;
     double p_min = 0.0;
-    double p_max = 20.0;
+    double p_max = 10.0;
     double Dt_max = 10.0;
     double Dt_min = -Dt_max;
-    double q2_max = 30.0;
+    double q2_max = 12.0;
     double w_max = 3.0;
     double w_min = 1.0;
 

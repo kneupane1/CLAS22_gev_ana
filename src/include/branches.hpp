@@ -9,8 +9,9 @@
 using v_int = std::vector<int> *;
 using v_float = std::vector<float> *;
 
-class Branches12 {
- private:
+class Branches12
+{
+private:
   std::shared_ptr<TChain> _tree;
 
   // Gotten from root's MakeClass
@@ -94,6 +95,15 @@ class Branches12 {
   v_float _dc_r3_x;
   v_float _dc_r3_y;
   v_float _dc_r3_z;
+
+  v_float _dc_r1_path;
+  v_float _dc_r2_path;
+  v_float _dc_r3_path;
+
+  v_float _dc_r1_edge;
+  v_float _dc_r2_edge;
+  v_float _dc_r3_edge;
+
   v_float _cvt_x;
   v_float _cvt_y;
   v_float _cvt_z;
@@ -268,230 +278,236 @@ class Branches12 {
   v_float _ft_hodo_radius;
 
   // List of branches
-  TBranch *b_run;                   //!
-  TBranch *b_event;                 //!
-  TBranch *b_unixtime;              //!
-  TBranch *b_trigger;               //!
-  TBranch *b_timestamp;             //!
-  TBranch *b_type;                  //!
-  TBranch *b_mode;                  //!
-  TBranch *b_torus;                 //!
-  TBranch *b_solenoid;              //!
-  TBranch *b_category;              //!
-  TBranch *b_topology;              //!
-  TBranch *b_beamCharge;            //!
-  TBranch *b_liveTime;              //!
-  TBranch *b_startTime;             //!
-  TBranch *b_RFTime;                //!
-  TBranch *b_helicity;              //!
-  TBranch *b_helicityRaw;           //!
-  TBranch *b_procTime;              //!
-  TBranch *b_hel_run;               //!
-  TBranch *b_hel_event;             //!
-  TBranch *b_hel_timestamp;         //!
-  TBranch *b_hel_helicity;          //!
-  TBranch *b_hel_helicityRaw;       //!
-  TBranch *b_hel_pair;              //!
-  TBranch *b_hel_pattern;           //!
-  TBranch *b_hel_status;            //!
-  TBranch *b_pid;                   //!
-  TBranch *b_p;                     //!
-  TBranch *b_p2;                    //!
-  TBranch *b_px;                    //!
-  TBranch *b_py;                    //!
-  TBranch *b_pz;                    //!
-  TBranch *b_vx;                    //!
-  TBranch *b_vy;                    //!
-  TBranch *b_vz;                    //!
-  TBranch *b_vt;                    //!
-  TBranch *b_charge;                //!
-  TBranch *b_beta;                  //!
-  TBranch *b_chi2pid;               //!
-  TBranch *b_status;                //!
-  TBranch *b_dc_sec;                //!
-  TBranch *b_dc_r1_x;               //!
-  TBranch *b_dc_r1_y;               //!
-  TBranch *b_dc_r1_z;               //!
-  TBranch *b_dc_r2_x;               //!
-  TBranch *b_dc_r2_y;               //!
-  TBranch *b_dc_r2_z;               //!
-  TBranch *b_dc_r3_x;               //!
-  TBranch *b_dc_r3_y;               //!
-  TBranch *b_dc_r3_z;               //!
-  TBranch *b_cvt_x;                 //!
-  TBranch *b_cvt_y;                 //!
-  TBranch *b_cvt_z;                 //!
-  TBranch *b_fmt_x;                 //!
-  TBranch *b_fmt_y;                 //!
-  TBranch *b_fmt_z;                 //!
-  TBranch *b_ec_tot_energy;         //!
-  TBranch *b_ec_pcal_energy;        //!
-  TBranch *b_ec_pcal_sec;           //!
-  TBranch *b_ec_pcal_time;          //!
-  TBranch *b_ec_pcal_path;          //!
-  TBranch *b_ec_pcal_x;             //!
-  TBranch *b_ec_pcal_y;             //!
-  TBranch *b_ec_pcal_z;             //!
-  TBranch *b_ec_pcal_hx;            //!
-  TBranch *b_ec_pcal_hy;            //!
-  TBranch *b_ec_pcal_hz;            //!
-  TBranch *b_ec_pcal_lu;            //!
-  TBranch *b_ec_pcal_lv;            //!
-  TBranch *b_ec_pcal_lw;            //!
-  TBranch *b_ec_pcal_du;            //!
-  TBranch *b_ec_pcal_dv;            //!
-  TBranch *b_ec_pcal_dw;            //!
-  TBranch *b_ec_pcal_m2u;           //!
-  TBranch *b_ec_pcal_m2v;           //!
-  TBranch *b_ec_pcal_m2w;           //!
-  TBranch *b_ec_pcal_m3u;           //!
-  TBranch *b_ec_pcal_m3v;           //!
-  TBranch *b_ec_pcal_m3w;           //!
-  TBranch *b_ec_ecin_energy;        //!
-  TBranch *b_ec_ecin_sec;           //!
-  TBranch *b_ec_ecin_time;          //!
-  TBranch *b_ec_ecin_path;          //!
-  TBranch *b_ec_ecin_x;             //!
-  TBranch *b_ec_ecin_y;             //!
-  TBranch *b_ec_ecin_z;             //!
-  TBranch *b_ec_ecin_hx;            //!
-  TBranch *b_ec_ecin_hy;            //!
-  TBranch *b_ec_ecin_hz;            //!
-  TBranch *b_ec_ecin_lu;            //!
-  TBranch *b_ec_ecin_lv;            //!
-  TBranch *b_ec_ecin_lw;            //!
-  TBranch *b_ec_ecin_du;            //!
-  TBranch *b_ec_ecin_dv;            //!
-  TBranch *b_ec_ecin_dw;            //!
-  TBranch *b_ec_ecin_m2u;           //!
-  TBranch *b_ec_ecin_m2v;           //!
-  TBranch *b_ec_ecin_m2w;           //!
-  TBranch *b_ec_ecin_m3u;           //!
-  TBranch *b_ec_ecin_m3v;           //!
-  TBranch *b_ec_ecin_m3w;           //!
-  TBranch *b_ec_ecout_energy;       //!
-  TBranch *b_ec_ecout_sec;          //!
-  TBranch *b_ec_ecout_time;         //!
-  TBranch *b_ec_ecout_path;         //!
-  TBranch *b_ec_ecout_x;            //!
-  TBranch *b_ec_ecout_y;            //!
-  TBranch *b_ec_ecout_z;            //!
-  TBranch *b_ec_ecout_hx;           //!
-  TBranch *b_ec_ecout_hy;           //!
-  TBranch *b_ec_ecout_hz;           //!
-  TBranch *b_ec_ecout_lu;           //!
-  TBranch *b_ec_ecout_lv;           //!
-  TBranch *b_ec_ecout_lw;           //!
-  TBranch *b_ec_ecout_du;           //!
-  TBranch *b_ec_ecout_dv;           //!
-  TBranch *b_ec_ecout_dw;           //!
-  TBranch *b_ec_ecout_m2u;          //!
-  TBranch *b_ec_ecout_m2v;          //!
-  TBranch *b_ec_ecout_m2w;          //!
-  TBranch *b_ec_ecout_m3u;          //!
-  TBranch *b_ec_ecout_m3v;          //!
-  TBranch *b_ec_ecout_m3w;          //!
-  TBranch *b_cc_nphe_tot;           //!
-  TBranch *b_cc_ltcc_sec;           //!
-  TBranch *b_cc_ltcc_nphe;          //!
-  TBranch *b_cc_ltcc_time;          //!
-  TBranch *b_cc_ltcc_path;          //!
-  TBranch *b_cc_ltcc_theta;         //!
-  TBranch *b_cc_ltcc_phi;           //!
-  TBranch *b_cc_ltcc_x;             //!
-  TBranch *b_cc_ltcc_y;             //!
-  TBranch *b_cc_ltcc_z;             //!
-  TBranch *b_cc_htcc_sec;           //!
-  TBranch *b_cc_htcc_nphe;          //!
-  TBranch *b_cc_htcc_time;          //!
-  TBranch *b_cc_htcc_path;          //!
-  TBranch *b_cc_htcc_theta;         //!
-  TBranch *b_cc_htcc_phi;           //!
-  TBranch *b_cc_htcc_x;             //!
-  TBranch *b_cc_htcc_y;             //!
-  TBranch *b_cc_htcc_z;             //!
-  TBranch *b_cc_rich_sec;           //!
-  TBranch *b_cc_rich_nphe;          //!
-  TBranch *b_cc_rich_time;          //!
-  TBranch *b_cc_rich_path;          //!
-  TBranch *b_cc_rich_theta;         //!
-  TBranch *b_cc_rich_phi;           //!
-  TBranch *b_cc_rich_x;             //!
-  TBranch *b_cc_rich_y;             //!
-  TBranch *b_cc_rich_z;             //!
-  TBranch *b_sc_ftof_1a_sec;        //!
-  TBranch *b_sc_ftof_1a_time;       //!
-  TBranch *b_sc_ftof_1a_path;       //!
-  TBranch *b_sc_ftof_1a_energy;     //!
-  TBranch *b_sc_ftof_1a_component;  //!
-  TBranch *b_sc_ftof_1a_x;          //!
-  TBranch *b_sc_ftof_1a_y;          //!
-  TBranch *b_sc_ftof_1a_z;          //!
-  TBranch *b_sc_ftof_1a_hx;         //!
-  TBranch *b_sc_ftof_1a_hy;         //!
-  TBranch *b_sc_ftof_1a_hz;         //!
-  TBranch *b_sc_ftof_1b_sec;        //!
-  TBranch *b_sc_ftof_1b_time;       //!
-  TBranch *b_sc_ftof_1b_path;       //!
-  TBranch *b_sc_ftof_1b_energy;     //!
-  TBranch *b_sc_ftof_1b_component;  //!
-  TBranch *b_sc_ftof_1b_x;          //!
-  TBranch *b_sc_ftof_1b_y;          //!
-  TBranch *b_sc_ftof_1b_z;          //!
-  TBranch *b_sc_ftof_1b_hx;         //!
-  TBranch *b_sc_ftof_1b_hy;         //!
-  TBranch *b_sc_ftof_1b_hz;         //!
-  TBranch *b_sc_ftof_2_sec;         //!
-  TBranch *b_sc_ftof_2_time;        //!
-  TBranch *b_sc_ftof_2_path;        //!
-  TBranch *b_sc_ftof_2_energy;      //!
-  TBranch *b_sc_ftof_2_component;   //!
-  TBranch *b_sc_ftof_2_x;           //!
-  TBranch *b_sc_ftof_2_y;           //!
-  TBranch *b_sc_ftof_2_z;           //!
-  TBranch *b_sc_ftof_2_hx;          //!
-  TBranch *b_sc_ftof_2_hy;          //!
-  TBranch *b_sc_ftof_2_hz;          //!
-  TBranch *b_sc_ctof_time;          //!
-  TBranch *b_sc_ctof_path;          //!
-  TBranch *b_sc_ctof_energy;        //!
-  TBranch *b_sc_ctof_component;     //!
-  TBranch *b_sc_ctof_x;             //!
-  TBranch *b_sc_ctof_y;             //!
-  TBranch *b_sc_ctof_z;             //!
-  TBranch *b_sc_ctof_hx;            //!
-  TBranch *b_sc_ctof_hy;            //!
-  TBranch *b_sc_ctof_hz;            //!
-  TBranch *b_sc_cnd_time;           //!
-  TBranch *b_sc_cnd_path;           //!
-  TBranch *b_sc_cnd_energy;         //!
-  TBranch *b_sc_cnd_component;      //!
-  TBranch *b_sc_cnd_x;              //!
-  TBranch *b_sc_cnd_y;              //!
-  TBranch *b_sc_cnd_z;              //!
-  TBranch *b_sc_cnd_hx;             //!
-  TBranch *b_sc_cnd_hy;             //!
-  TBranch *b_sc_cnd_hz;             //!
-  TBranch *b_ft_cal_energy;         //!
-  TBranch *b_ft_cal_time;           //!
-  TBranch *b_ft_cal_path;           //!
-  TBranch *b_ft_cal_x;              //!
-  TBranch *b_ft_cal_y;              //!
-  TBranch *b_ft_cal_z;              //!
-  TBranch *b_ft_cal_dx;             //!
-  TBranch *b_ft_cal_dy;             //!
-  TBranch *b_ft_cal_radius;         //!
-  TBranch *b_ft_hodo_energy;        //!
-  TBranch *b_ft_hodo_time;          //!
-  TBranch *b_ft_hodo_path;          //!
-  TBranch *b_ft_hodo_x;             //!
-  TBranch *b_ft_hodo_y;             //!
-  TBranch *b_ft_hodo_z;             //!
-  TBranch *b_ft_hodo_dx;            //!
-  TBranch *b_ft_hodo_dy;            //!
-  TBranch *b_ft_hodo_radius;        //!
+  TBranch *b_run;                  //!
+  TBranch *b_event;                //!
+  TBranch *b_unixtime;             //!
+  TBranch *b_trigger;              //!
+  TBranch *b_timestamp;            //!
+  TBranch *b_type;                 //!
+  TBranch *b_mode;                 //!
+  TBranch *b_torus;                //!
+  TBranch *b_solenoid;             //!
+  TBranch *b_category;             //!
+  TBranch *b_topology;             //!
+  TBranch *b_beamCharge;           //!
+  TBranch *b_liveTime;             //!
+  TBranch *b_startTime;            //!
+  TBranch *b_RFTime;               //!
+  TBranch *b_helicity;             //!
+  TBranch *b_helicityRaw;          //!
+  TBranch *b_procTime;             //!
+  TBranch *b_hel_run;              //!
+  TBranch *b_hel_event;            //!
+  TBranch *b_hel_timestamp;        //!
+  TBranch *b_hel_helicity;         //!
+  TBranch *b_hel_helicityRaw;      //!
+  TBranch *b_hel_pair;             //!
+  TBranch *b_hel_pattern;          //!
+  TBranch *b_hel_status;           //!
+  TBranch *b_pid;                  //!
+  TBranch *b_p;                    //!
+  TBranch *b_p2;                   //!
+  TBranch *b_px;                   //!
+  TBranch *b_py;                   //!
+  TBranch *b_pz;                   //!
+  TBranch *b_vx;                   //!
+  TBranch *b_vy;                   //!
+  TBranch *b_vz;                   //!
+  TBranch *b_vt;                   //!
+  TBranch *b_charge;               //!
+  TBranch *b_beta;                 //!
+  TBranch *b_chi2pid;              //!
+  TBranch *b_status;               //!
+  TBranch *b_dc_sec;               //!
+  TBranch *b_dc_r1_x;              //!
+  TBranch *b_dc_r1_y;              //!
+  TBranch *b_dc_r1_z;              //!
+  TBranch *b_dc_r2_x;              //!
+  TBranch *b_dc_r2_y;              //!
+  TBranch *b_dc_r2_z;              //!
+  TBranch *b_dc_r3_x;              //!
+  TBranch *b_dc_r3_y;              //!
+  TBranch *b_dc_r3_z;              //!
+  TBranch *b_dc_r1_path;           //!
+  TBranch *b_dc_r2_path;           //!
+  TBranch *b_dc_r3_path;           //!
+  TBranch *b_dc_r1_edge;           //!
+  TBranch *b_dc_r2_edge;           //!
+  TBranch *b_dc_r3_edge;           //!
+  TBranch *b_cvt_x;                //!
+  TBranch *b_cvt_y;                //!
+  TBranch *b_cvt_z;                //!
+  TBranch *b_fmt_x;                //!
+  TBranch *b_fmt_y;                //!
+  TBranch *b_fmt_z;                //!
+  TBranch *b_ec_tot_energy;        //!
+  TBranch *b_ec_pcal_energy;       //!
+  TBranch *b_ec_pcal_sec;          //!
+  TBranch *b_ec_pcal_time;         //!
+  TBranch *b_ec_pcal_path;         //!
+  TBranch *b_ec_pcal_x;            //!
+  TBranch *b_ec_pcal_y;            //!
+  TBranch *b_ec_pcal_z;            //!
+  TBranch *b_ec_pcal_hx;           //!
+  TBranch *b_ec_pcal_hy;           //!
+  TBranch *b_ec_pcal_hz;           //!
+  TBranch *b_ec_pcal_lu;           //!
+  TBranch *b_ec_pcal_lv;           //!
+  TBranch *b_ec_pcal_lw;           //!
+  TBranch *b_ec_pcal_du;           //!
+  TBranch *b_ec_pcal_dv;           //!
+  TBranch *b_ec_pcal_dw;           //!
+  TBranch *b_ec_pcal_m2u;          //!
+  TBranch *b_ec_pcal_m2v;          //!
+  TBranch *b_ec_pcal_m2w;          //!
+  TBranch *b_ec_pcal_m3u;          //!
+  TBranch *b_ec_pcal_m3v;          //!
+  TBranch *b_ec_pcal_m3w;          //!
+  TBranch *b_ec_ecin_energy;       //!
+  TBranch *b_ec_ecin_sec;          //!
+  TBranch *b_ec_ecin_time;         //!
+  TBranch *b_ec_ecin_path;         //!
+  TBranch *b_ec_ecin_x;            //!
+  TBranch *b_ec_ecin_y;            //!
+  TBranch *b_ec_ecin_z;            //!
+  TBranch *b_ec_ecin_hx;           //!
+  TBranch *b_ec_ecin_hy;           //!
+  TBranch *b_ec_ecin_hz;           //!
+  TBranch *b_ec_ecin_lu;           //!
+  TBranch *b_ec_ecin_lv;           //!
+  TBranch *b_ec_ecin_lw;           //!
+  TBranch *b_ec_ecin_du;           //!
+  TBranch *b_ec_ecin_dv;           //!
+  TBranch *b_ec_ecin_dw;           //!
+  TBranch *b_ec_ecin_m2u;          //!
+  TBranch *b_ec_ecin_m2v;          //!
+  TBranch *b_ec_ecin_m2w;          //!
+  TBranch *b_ec_ecin_m3u;          //!
+  TBranch *b_ec_ecin_m3v;          //!
+  TBranch *b_ec_ecin_m3w;          //!
+  TBranch *b_ec_ecout_energy;      //!
+  TBranch *b_ec_ecout_sec;         //!
+  TBranch *b_ec_ecout_time;        //!
+  TBranch *b_ec_ecout_path;        //!
+  TBranch *b_ec_ecout_x;           //!
+  TBranch *b_ec_ecout_y;           //!
+  TBranch *b_ec_ecout_z;           //!
+  TBranch *b_ec_ecout_hx;          //!
+  TBranch *b_ec_ecout_hy;          //!
+  TBranch *b_ec_ecout_hz;          //!
+  TBranch *b_ec_ecout_lu;          //!
+  TBranch *b_ec_ecout_lv;          //!
+  TBranch *b_ec_ecout_lw;          //!
+  TBranch *b_ec_ecout_du;          //!
+  TBranch *b_ec_ecout_dv;          //!
+  TBranch *b_ec_ecout_dw;          //!
+  TBranch *b_ec_ecout_m2u;         //!
+  TBranch *b_ec_ecout_m2v;         //!
+  TBranch *b_ec_ecout_m2w;         //!
+  TBranch *b_ec_ecout_m3u;         //!
+  TBranch *b_ec_ecout_m3v;         //!
+  TBranch *b_ec_ecout_m3w;         //!
+  TBranch *b_cc_nphe_tot;          //!
+  TBranch *b_cc_ltcc_sec;          //!
+  TBranch *b_cc_ltcc_nphe;         //!
+  TBranch *b_cc_ltcc_time;         //!
+  TBranch *b_cc_ltcc_path;         //!
+  TBranch *b_cc_ltcc_theta;        //!
+  TBranch *b_cc_ltcc_phi;          //!
+  TBranch *b_cc_ltcc_x;            //!
+  TBranch *b_cc_ltcc_y;            //!
+  TBranch *b_cc_ltcc_z;            //!
+  TBranch *b_cc_htcc_sec;          //!
+  TBranch *b_cc_htcc_nphe;         //!
+  TBranch *b_cc_htcc_time;         //!
+  TBranch *b_cc_htcc_path;         //!
+  TBranch *b_cc_htcc_theta;        //!
+  TBranch *b_cc_htcc_phi;          //!
+  TBranch *b_cc_htcc_x;            //!
+  TBranch *b_cc_htcc_y;            //!
+  TBranch *b_cc_htcc_z;            //!
+  TBranch *b_cc_rich_sec;          //!
+  TBranch *b_cc_rich_nphe;         //!
+  TBranch *b_cc_rich_time;         //!
+  TBranch *b_cc_rich_path;         //!
+  TBranch *b_cc_rich_theta;        //!
+  TBranch *b_cc_rich_phi;          //!
+  TBranch *b_cc_rich_x;            //!
+  TBranch *b_cc_rich_y;            //!
+  TBranch *b_cc_rich_z;            //!
+  TBranch *b_sc_ftof_1a_sec;       //!
+  TBranch *b_sc_ftof_1a_time;      //!
+  TBranch *b_sc_ftof_1a_path;      //!
+  TBranch *b_sc_ftof_1a_energy;    //!
+  TBranch *b_sc_ftof_1a_component; //!
+  TBranch *b_sc_ftof_1a_x;         //!
+  TBranch *b_sc_ftof_1a_y;         //!
+  TBranch *b_sc_ftof_1a_z;         //!
+  TBranch *b_sc_ftof_1a_hx;        //!
+  TBranch *b_sc_ftof_1a_hy;        //!
+  TBranch *b_sc_ftof_1a_hz;        //!
+  TBranch *b_sc_ftof_1b_sec;       //!
+  TBranch *b_sc_ftof_1b_time;      //!
+  TBranch *b_sc_ftof_1b_path;      //!
+  TBranch *b_sc_ftof_1b_energy;    //!
+  TBranch *b_sc_ftof_1b_component; //!
+  TBranch *b_sc_ftof_1b_x;         //!
+  TBranch *b_sc_ftof_1b_y;         //!
+  TBranch *b_sc_ftof_1b_z;         //!
+  TBranch *b_sc_ftof_1b_hx;        //!
+  TBranch *b_sc_ftof_1b_hy;        //!
+  TBranch *b_sc_ftof_1b_hz;        //!
+  TBranch *b_sc_ftof_2_sec;        //!
+  TBranch *b_sc_ftof_2_time;       //!
+  TBranch *b_sc_ftof_2_path;       //!
+  TBranch *b_sc_ftof_2_energy;     //!
+  TBranch *b_sc_ftof_2_component;  //!
+  TBranch *b_sc_ftof_2_x;          //!
+  TBranch *b_sc_ftof_2_y;          //!
+  TBranch *b_sc_ftof_2_z;          //!
+  TBranch *b_sc_ftof_2_hx;         //!
+  TBranch *b_sc_ftof_2_hy;         //!
+  TBranch *b_sc_ftof_2_hz;         //!
+  TBranch *b_sc_ctof_time;         //!
+  TBranch *b_sc_ctof_path;         //!
+  TBranch *b_sc_ctof_energy;       //!
+  TBranch *b_sc_ctof_component;    //!
+  TBranch *b_sc_ctof_x;            //!
+  TBranch *b_sc_ctof_y;            //!
+  TBranch *b_sc_ctof_z;            //!
+  TBranch *b_sc_ctof_hx;           //!
+  TBranch *b_sc_ctof_hy;           //!
+  TBranch *b_sc_ctof_hz;           //!
+  TBranch *b_sc_cnd_time;          //!
+  TBranch *b_sc_cnd_path;          //!
+  TBranch *b_sc_cnd_energy;        //!
+  TBranch *b_sc_cnd_component;     //!
+  TBranch *b_sc_cnd_x;             //!
+  TBranch *b_sc_cnd_y;             //!
+  TBranch *b_sc_cnd_z;             //!
+  TBranch *b_sc_cnd_hx;            //!
+  TBranch *b_sc_cnd_hy;            //!
+  TBranch *b_sc_cnd_hz;            //!
+  TBranch *b_ft_cal_energy;        //!
+  TBranch *b_ft_cal_time;          //!
+  TBranch *b_ft_cal_path;          //!
+  TBranch *b_ft_cal_x;             //!
+  TBranch *b_ft_cal_y;             //!
+  TBranch *b_ft_cal_z;             //!
+  TBranch *b_ft_cal_dx;            //!
+  TBranch *b_ft_cal_dy;            //!
+  TBranch *b_ft_cal_radius;        //!
+  TBranch *b_ft_hodo_energy;       //!
+  TBranch *b_ft_hodo_time;         //!
+  TBranch *b_ft_hodo_path;         //!
+  TBranch *b_ft_hodo_x;            //!
+  TBranch *b_ft_hodo_y;            //!
+  TBranch *b_ft_hodo_z;            //!
+  TBranch *b_ft_hodo_dx;           //!
+  TBranch *b_ft_hodo_dy;           //!
+  TBranch *b_ft_hodo_radius;       //!
 
- public:
+public:
   Branches12(){};
   Branches12(const std::shared_ptr<TChain> &tree);
   Branches12(const std::shared_ptr<TChain> &tree, bool mc);
@@ -526,6 +542,12 @@ class Branches12 {
   float dc_r3_x(int i);
   float dc_r3_y(int i);
   float dc_r3_z(int i);
+  float dc_r1_path(int i);
+  float dc_r2_path(int i);
+  float dc_r3_path(int i);
+  float dc_r1_edge(int i);
+  float dc_r2_edge(int i);
+  float dc_r3_edge(int i);
   // SC
   int sc_ftof_1a_sec(int i);
   float sc_ftof_1a_time(int i);
@@ -715,8 +737,9 @@ class Branches12 {
   float ft_hodo_radius(int i);
 };
 
-class MCBranches12 : public Branches12 {
- public:
+class MCBranches12 : public Branches12
+{
+public:
   MCBranches12(const std::shared_ptr<TChain> &tree);
 };
 #endif

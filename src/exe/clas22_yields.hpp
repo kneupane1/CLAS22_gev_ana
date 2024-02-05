@@ -140,6 +140,12 @@ size_t run(std::shared_ptr<TChain> _chain, const std::shared_ptr<SyncFile> &_syn
         output.w = event->W();
         output.q2 = event->Q2();
         output.w_had = event->w_hadron();
+        output.dc_R1_edge = event->DC_R1_Edge();
+        output.dc_R2_edge = event->DC_R2_Edge();
+        output.dc_R3_edge = event->DC_R3_Edge();
+        output.pip_theta_rec = event->Pip_theta_mes();
+        output.pip_phi_rec = event->Pip_phi_mes();
+        output.sec_pip = event->Pipsec();
 
         output.weight_gen = event->weight();
 

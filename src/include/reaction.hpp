@@ -50,7 +50,6 @@ protected:
   float _MM2_exclusive = NAN;
   float _excl_Energy = NAN;
   float _excl_Mom = NAN;
-  ;
   float _MM2_mPip = NAN;
   float _MM2_mProt = NAN;
 
@@ -63,9 +62,18 @@ protected:
   float _theta_e = NAN;
   float _elec_phi = NAN;
 
+  float _dc_Region1_edge = NAN;
+  float _dc_Region2_edge = NAN;
+  float _dc_Region3_edge = NAN;
+
+  float _theta_PIP_traj_tilt = NAN;
+  float _phi_PIP_traj_tilt = NAN;
+
   float _prot_status = NAN;
   float _pip_status = NAN;
   float _pim_status = NAN;
+
+  int _sectorPip = -1;
 
   void SetElec();
 
@@ -110,6 +118,19 @@ public:
 
   float w_hadron();
   float w_difference();
+
+  float Pip_theta_mes();
+  float Pip_phi_mes();
+  inline short Pipsec() { return _sectorPip; }
+
+  inline float DC_R1_Edge() { return _dc_Region1_edge; }
+  inline float DC_R2_Edge() { return _dc_Region2_edge; }
+  inline float DC_R3_Edge() { return _dc_Region3_edge; }
+
+  void Calc_theta_phi(int i);
+
+  TVector3 trajTiltedPoint3D(TVector3 &point, int sec);
+  TVector3 trajLocalPoint3D(TVector3 &point, int sec, int layer, int detID);
 
   inline float W() { return _W; }
   inline float Q2() { return _Q2; }
